@@ -9,9 +9,7 @@
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3.0",
         "santigarcor/laratrust": "3.0.*",
-        "yajra/laravel-datatables-oracle": "~6.0",
-        "nwidart/db-exporter": "^1.1",
-        "spatie/laravel-backup": "^3.0.0"
+        "yajra/laravel-datatables-oracle": "~6.0"
 
     },
     "require-dev": {

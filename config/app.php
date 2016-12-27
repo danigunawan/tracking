@@ -165,9 +165,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laratrust\LaratrustServiceProvider::class,
         Yajra\Datatables\DatatablesServiceProvider::class,
-        Nwidart\DbExporter\DbExportHandlerServiceProvider::class,  
- Spatie\Backup\BackupServiceProvider::class,
-
+      
 
 
 
