@@ -33,7 +33,7 @@ Route::group(['prefix'=>'auditor', 'middleware'=>['auth','role:auditor']], funct
 });
 
 
-Route::group(['prefix'=>'member', 'middleware'=>['auth','role:member']], function () {
+Route::group(['prefix'=>'member', 'middleware'=>['auth','role:member,auditor']], function () {
 // Route diisi disini...
 	Route::resource('tugas', 'TugasController');
 	Route::resource('subtugas', 'SubTugasController');

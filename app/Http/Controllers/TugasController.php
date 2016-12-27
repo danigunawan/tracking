@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Support\Facades\DB;
 use Session;
 use App\Activity;
+
 class TugasController extends Controller
 {
     /**
@@ -30,6 +31,19 @@ class TugasController extends Controller
     public function create()
     {
         //
+
+          if (Laratrust::hasRole('auditor')) {return view('tugas.create_auditor');
+      }
+        if (Laratrust::hasRole('member')){
+
+            return view('tugas.create');
+        } 
+
+     
+        return view('home');
+
+
+
     }
 
     /**
@@ -188,11 +202,11 @@ return redirect('/');
         //Y
         $id_user = Auth::user()->id;
         $tanggal = date('Y-m-d');
-        $Tugas = Tugas::find($id);
+        
         $Tugas->status_konfirmasi= 1 ; 
         $Tugas->tanggal_konfirmasi=  $tanggal ; 
         $Tugas->id_user_konfirmasi = $id_user;
-        $Tugas->save();    
+        $Tugas->save();   
           Session::flash("flash_notification", [
         "level"=>"success",
         "message"=>"Berhasil Mengkonfirmasi Tugas $Tugas->nama_tugas "
@@ -206,7 +220,7 @@ return redirect('/');
         if (Laratrust::hasRole('member')) return $this->tugasMemberSelesai();
           return view('home');
     }
-
+                
     public function konfirmasi(){
 
          if (Laratrust::hasRole('auditor')) return $this->tugasAuitorKonfirmasi();
